@@ -1,7 +1,7 @@
 name: auth_service
 description: A new Flutter project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/rahulbhalla17/auth_service
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
