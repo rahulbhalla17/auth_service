@@ -1,6 +1,6 @@
 name: auth_service
 description: A new Flutter project.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/rahulbhalla17/auth_service
 
 environment:
@@ -10,9 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core:
-  firebase_auth:
-  google_sign_in:
+  firebase_core: ^1.12.0
+  firebase_auth: ^3.3.7
+  google_sign_in: ^5.2.4
+  flutter_facebook_auth: ^3.5.2
+  
 
 dev_dependencies:
   flutter_test:
