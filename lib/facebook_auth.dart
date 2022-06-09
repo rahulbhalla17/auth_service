@@ -11,16 +11,25 @@ class FAuthentication {
     );
   }
 
-  static Future<Map<String, dynamic>?> fbLoginMethod(
+  static Future<UserInfoModel?> fbLoginMethod(
       {required BuildContext context}) async {
-    Map<String, dynamic>? user;
+    UserInfoModel user = new UserInfoModel();
     try {
       final LoginResult result = await FacebookAuth.instance
           .login(); // by default we request the email and the public profile
       if (result.status == LoginStatus.success) {
         print("logged in");
-        user = await FacebookAuth.i.getUserData();
-        print(user['name']);
+        final userData = await FacebookAuth.i.getUserData();
+
+        user.emailId = userData['email'];
+        user.name = userData['name'];
+        // user = UserInfoModel(
+        //   user?.displayName,
+        //   user?.emailId,
+        // );
+
+        //user?.name = userData['name'];
+        //user?.emailId = userData['email'];
       } else if (result.status == LoginStatus.failed) {
         ScaffoldMessenger.of(context).showSnackBar(
           FAuthentication.customSnackBar(
